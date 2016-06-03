@@ -25,8 +25,9 @@ A recoded character vector. If  the input was class factor,
 the output will be converted to class character.
 }
 \description{
-This function is an optimized version of recode. It is designed
-  to take a list, or a named vector as the recode object.
+This vectorized function codes (or maps) input vectors to
+strings. It is designed to take a list, or a named vector as the recode
+object.
 }
 \details{
 This function uses data.table and an optimized version of
@@ -39,32 +40,10 @@ May actually be slower for small datasets, but speed does not
 matter in such cases. Refactoring could be an option if users report
 a desire for such an option.
 }
-\section{TODO}{
-
-\itemize{
-   \item This needs a redo. I am having a lot of issues with it.
-   \item Added a dropout for car::recode syntax
-}
-}
 \examples{
-x <- c("A", "E", 7, "I", "11", "fifteen", 16)
-recode_key = c(
-  "'1'  = c('A','B','C')",
-  "'DD' = c('D','E', 7)",
-  "'2'  = c('H','I','J')",
-  "'last_num' = 11:13",
-  "'else' = NA"
-)
-recode_string(x, recode_key)
-recode_key = c(
-  "'1'  = c('A','B','C')"
-)
-recode_string(x, recode_key)
-recode_key = c(
-  "'1'  = c('A','B','C');DD = c('D','E', 7);'2' = c('H','I','J');
-  last_num = 11:13;'else' = NA"
-)
-recode_string(x, recode_key)
+x <- c("A", "E", 7, "I", "11", "fifteen", 16, NA)
+
+# EXAMPLE 1
 recode_key = list(
   '1' = c("A", "B", "C"),
   DD  = c("D", "E", 7),
@@ -73,13 +52,37 @@ recode_key = list(
   'else' = c("somethingelse")
 )
 recode_string(x, recode_key)
+
+# EXAMPLE 2
+recode_key = c(
+  "'1'  = c('A','B','C')",
+  "'DD' = c('D','E', 7)",
+  "'2'  = c('H','I','J')",
+  "'last_num' = 11:13",
+  "'else' = NA"
+)
+recode_string(x, recode_key)
+
+# EXAMPLE 3
+recode_key = c(
+  "'1'  = c('A','B','C')"
+)
+recode_string(x, recode_key)
+
+# EXAMPLE 4
+recode_key = c(
+  "'1'  = c('A','B','C');DD = c('D','E', 7);'2' = c('H','I','J');
+  last_num = 11:13;'else' = NA"
+)
+recode_string(x, recode_key)
+
+# EXAMPLE 5
 recode_key = list(
   '1' = c("A", "B", "C"),
   DD  = c("D", "E",  7),
   '2' = c("H", "I", "J"),
   last_num = c(11, 12, 13),
-  'else' = c(NA)
-)
+  'else' = c(NA))
 recode_string(x, recode_key)
 \dontrun{
 recode_key = c(

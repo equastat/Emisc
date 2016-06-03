@@ -46,6 +46,7 @@ This function updates by reference multiple columns by applying
 \examples{
 dt <- d.t(x = 0:10, y = 10:20)
 setf(dt, j = c("x","y"), value = paste0,  ., "hello", "would")
+dt <- d.t(x = 1:10, y = 11:20)
 print(dt)
 }
 
