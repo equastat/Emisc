@@ -33,9 +33,10 @@ This function uses data.table and an optimized version of
   stand-alone vectors as well.
 }
 \note{
-May actually be slower for small datasets, but speed does not
-matter in such cases. Refactoring could be an option if users report
-a desire for such an option.
+1. str_rec is a mask for recode_string.
+2. May actually be slower for small datasets, but speed does not
+matter in such cases. Refactoring is a feature request we will consider
+upon user request.
 }
 \examples{
 x <- c("A", "E", 7, "I", "11", "fifteen", 16, NA)
