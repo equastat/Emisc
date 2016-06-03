@@ -19,34 +19,44 @@ reference all columns in the data.table.}
 
 \item{value}{A list of replacement values to assign by reference to
 \code{x[i, j]}. In addition, functions can be passed into the value
-argument as well with subsquent arguements in the same way as apply
+argument as well with subsquent arguments in the same way as apply
 functions.}
 
 \item{...}{Is used to pass arguments into the value "function" if you choose
 to apply a function instead of updating the data with a replacement vector
 or list. If you choose to place a \code{.} at any point within the
-sequence of additional arguements passed into the \code{value} arguement,
+sequence of additional arguments passed into the \code{value} argument,
 the \code{.} will act as a placeholder for the jth column.}
 }
 \description{
-This function updates by reference multiple columns by applying
-  a desired function such as \code{numeric}, \code{factor} using functions in
-  the same manior as \code{apply()}, or with \code{.} as a placeholder.
+This convenience function updates by reference multiple columns
+ by applying a desired function such as \code{numeric}, \code{factor} using
+ functions in the same manor as \code{apply()}, or with \code{.} as a
+ placeholder. The purpose is to avoid a for loop in conjunction with
+ data.table::set.
 }
 \section{Notes}{
  These functions are for convenience only.
 }
-
-\section{TODO}{
-
-\itemize{
-   \item Consider to.function joining.
-}
-}
 \examples{
+# Data Table Example 1
 dt <- d.t(x = 0:10, y = 10:20)
-setf(dt, j = c("x","y"), value = paste0,  ., "hello", "would")
-dt <- d.t(x = 1:10, y = 11:20)
+setf(dt, j = c("x","y"), value = paste0,  ., "hello", "world")
 print(dt)
+
+# Data Table Example 2 (same result as Data Table Example 1)
+dt <- d.t(x = 0:10, y = 10:20)
+setf(dt, j = c("x","y"),
+ value = function(x) paste0(x, "hello", "world"))
+print(dt)
+
+# Data Frame Example
+df_test <- data.frame(a=1:10, b = 2:11, c = 3:12)
+setf(df_test, j = c("a", "c"), value = function(x) x+4)
+df_test
+
+vec_test <- list(a = 1:10, b = 2:11)
+setf(vec_test, j = "a", value = function(x) x+1)
+
 }
 

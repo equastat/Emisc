@@ -16,12 +16,12 @@
 #'   reference all columns in the data.table.
 #' @param value  A list of replacement values to assign by reference to
 #'   \code{x[i, j]}. In addition, functions can be passed into the value
-#'   argument as well with subsquent arguements in the same way as apply
+#'   argument as well with subsquent arguments in the same way as apply
 #'   functions.
 #' @param ... Is used to pass arguments into the value "function" if you choose
 #'   to apply a function instead of updating the data with a replacement vector
 #'   or list. If you choose to place a \code{.} at any point within the
-#'   sequence of additional arguements passed into the \code{value} arguement,
+#'   sequence of additional arguments passed into the \code{value} argument,
 #'   the \code{.} will act as a placeholder for the jth column.
 #'
 #' @section Notes: These functions are for convenience only.
@@ -46,12 +46,8 @@ NULL
 #' # Data Frame Example
 #' df_test <- data.frame(a=1:10, b = 2:11, c = 3:12)
 #' setf(df_test, j = c("a", "c"), value = function(x) x+4)
-#' df_test
+#' print(df_test)
 #'
-#' @section TODO:
-#' \itemize{
-#'    \item Consider to.function joining.
-#' }
 #' @export
 setf <- function(x, j, value, ...) {
   if (!'all' %in% names(x) && j == "all") j <- names(x)
