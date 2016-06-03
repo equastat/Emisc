@@ -1,2 +1,2 @@
 # EquaPac
-A place for common Equastat R tools.
+A place for common Equastat tools. 

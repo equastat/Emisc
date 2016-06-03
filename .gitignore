@@ -1,0 +1,29 @@
+# Example code in package build process
+*-Ex.R
+
+# RStudio files
+.Rproj.user/
+
+# produced vignettes
+vignettes/*.html
+vignettes/*.pdf
+
+*.tmp
+*.history
+*.RData
+*.Rprofile
+*.dropbox
+*.Rproj
+*.Rproj.user/
+*.dropbox
+*.o
+src/*.o-*
+*.so
+.RData
+.Rproj.user
+.Rhistory
+inst/doc
+.httr-oauth
+*.xlsx
+*.csv
+

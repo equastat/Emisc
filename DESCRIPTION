@@ -1,0 +1,25 @@
+Package: EquaPac
+Version: 1.0.0
+Title: Common Practice & Utility Convenience Functions
+Author: person("Reino", "Bruner", email = "reinobruner@gmail.com",
+    role = c("aut", "cre")), person("James", "Dalrymple", email =
+    "dalrymple.j88@gmail.com", role = c("aut"))
+Maintainer: R Bruner <reinobruner@gmail.com>
+Description: Equastat's repetitive tool storage.
+Depends:
+    R (>= 3.2.4),
+    data.table (>= 1.9.6),
+    Hmisc
+Imports:
+    ggplot2,
+    knitr,
+    pacman,
+    pryr
+Suggests:
+License: MIT + file LICENSE
+URL: https://github.com/Equastat/EquaPac
+BugReports: NA
+MailingList: NA
+VignetteBuilder: knitr
+ByteCompile: Yes
+RoxygenNote: 5.0.1
