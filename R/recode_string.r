@@ -67,6 +67,7 @@
 #'   last_num = c(11, 12, 13),
 #'   'else' = c(NA))
 #' recode_string(x, recode_key)
+#'
 #' \dontrun{
 ### Doesn't work. Number as names must be quoted ###
 #' recode_key = c(
@@ -82,7 +83,8 @@ NULL
 L1 <- value <- NULL # R CMD Checker Appeasement
 
 #' @importFrom data.table data.table melt :=
-#' @rdname recode_string
+
+#' @keywords internal
 recode_s <- function(x, recode_key) {
   melt_key <- data.table(data.table::melt(recode_key), key = "value")
   melt_x <- melt_key[x]
