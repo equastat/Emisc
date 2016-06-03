@@ -73,11 +73,12 @@
 #' @name recode_string
 NULL
 
-#' @importFrom data.table data.table melt
+L1 <- value <- NULL # R CMD Checker Appeasement
+
+#' @importFrom data.table data.table melt :=
 #' @rdname recode_string
 recode_s <- function(x, recode_key) {
-  L1<-value<-NULL # R CMD Checker Appeasement
-  melt_key <- data.table(melt(recode_key), key = "value")
+  melt_key <- data.table(data.table::melt(recode_key), key = "value")
   melt_x <- melt_key[x]
   if ('else' %in% names(recode_key)) {
     to_cls <- class(melt_x[['L1']])
@@ -102,7 +103,6 @@ recode_s <- function(x, recode_key) {
 #' @rdname recode_string
 #' @export
 recode_string <- function(x, recode_key) {
-  L1<-value<-NULL # R CMD Checker Appeasement
   if (typeof(recode_key) == 'list') {
     recode_key <- lapply(recode_key, as.character)
   } else if (typeof(recode_key) == 'character') {
