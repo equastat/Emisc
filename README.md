@@ -1,2 +1,2 @@
-# EquaPac
-A place for common Equastat tools. 
+# Emisc
+Project overview is on the GitHub Wiki tab, our HOMEPAGE
