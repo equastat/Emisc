@@ -53,10 +53,7 @@ print(dt)
 # Data Frame Example
 df_test <- data.frame(a=1:10, b = 2:11, c = 3:12)
 setf(df_test, j = c("a", "c"), value = function(x) x+4)
-df_test
-
-vec_test <- list(a = 1:10, b = 2:11)
-setf(vec_test, j = "a", value = function(x) x+1)
+print(df_test)
 
 }
 
