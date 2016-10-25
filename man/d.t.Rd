@@ -6,24 +6,29 @@
 \alias{rbl}
 \title{data.table shortened alternatives}
 \usage{
-d.t(..., keep.rownames = FALSE, check.names = FALSE, key = NULL,
-  stringsAsFactors = FALSE)
+d.t(..., keep.rownames = FALSE, check.names = FALSE, key = NULL)
 
 d.f(..., row.names = NULL, check.rows = FALSE, check.names = TRUE,
-  stringsAsFactors = default.stringsAsFactors())
+  fix.empty.names = TRUE, stringsAsFactors = default.stringsAsFactors())
 
 rbl(l, use.names = fill, fill = FALSE, idcol = NULL)
 }
 \arguments{
-\item{...}{ Just as \code{\dots} in \code{\link{data.frame}}. Usual recycling rules are applied to vectors of different lengths to create a list of equal length vectors.}
+\item{...}{ Just as \code{\dots} in \code{\link{data.frame}}. Usual recycling rules are applied to vectors of different lengths to create a list of equal length vectors.
 
-\item{keep.rownames}{ If \code{\dots} is a \code{matrix} or \code{data.frame}, \code{TRUE} will retain the rownames of that object in a column named \code{rn}.}
+}
 
-\item{check.names}{ Just as \code{check.names} in \code{\link{data.frame}}.}
+\item{keep.rownames}{ If \code{\dots} is a \code{matrix} or \code{data.frame}, \code{TRUE} will retain the rownames of that object in a column named \code{rn}.
 
-\item{key}{ Character vector of one or more column names which is passed to \code{\link{setkey}}. It may be a single comma separated string such as \code{key="x,y,z"}, or a vector of names such as \code{key=c("x","y","z")}.}
+}
 
-\item{stringsAsFactors}{Logical (default is \code{FALSE}). Convert all \code{character} columns to \code{factor}s?}
+\item{check.names}{ Just as \code{check.names} in \code{\link{data.frame}}.
+
+}
+
+\item{key}{ Character vector of one or more column names which is passed to \code{\link{setkey}}. It may be a single comma separated string such as \code{key="x,y,z"}, or a vector of names such as \code{key=c("x","y","z")}.
+
+}
 
 \item{row.names}{\code{NULL} or a single integer or character string
     specifying a column to be used as row names, or a character or
@@ -31,6 +36,17 @@ rbl(l, use.names = fill, fill = FALSE, idcol = NULL)
 
 \item{check.rows}{if \code{TRUE} then the rows are checked for
     consistency of length and names.}
+
+\item{fix.empty.names}{logical indicating if arguments which are
+    \dQuote{unnamed} (in the sense of not being formally called as
+    \code{someName = arg}) get an automatically constructed name or
+    rather name \code{""}.  Needs to be set to \code{FALSE} even when
+    \code{check.names} is false if \code{""} names should be kept.}
+
+\item{stringsAsFactors}{logical: should character vectors be converted
+    to factors?  The \sQuote{factory-fresh} default is \code{TRUE}, but
+    this can be changed by setting \code{\link{options}(stringsAsFactors
+      = FALSE)}.}
 
 \item{l}{ A list containing \code{data.table}, \code{data.frame} or \code{list} objects. At least one of the inputs should have column names set. \code{\dots} is the same but you pass the objects by name separately. }
 
