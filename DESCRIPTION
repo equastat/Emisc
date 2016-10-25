@@ -1,5 +1,5 @@
 Package: Emisc
-Version: 1.0.0
+Version: 0.2.0
 Title: Programming Tools & Convenience Functions
 Author: person("Walters", "James", email = "james@equastat.com",
     role = c("cre")), person("James", "Dalrymple", email =
